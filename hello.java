@@ -14,11 +14,11 @@ public class UserService {
 
     public List<User> getAllUsers() {
         // PERFORMANCE: N+1 query problem
-        List<User> users = userRepo.findAll();
-        for (User u : users) {
+        List<User> user = userRepo.findAll();
+        for (User u : user) {
             u.setOrders(orderRepo.findByUserId(u.getId()));
         }
-        return users;
+        return user;
     }
 }
 EOF
