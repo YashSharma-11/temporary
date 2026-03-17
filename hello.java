@@ -18,7 +18,7 @@ public class UserService {
         for (User u : user) {
             u.setOrders(orderRepo.findByUserId(u.getId()));
         }
-        return user;
+        return user
     }
 }
 EOF
