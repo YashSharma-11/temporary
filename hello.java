@@ -1,4 +1,3 @@
-cat > UserService.java << 'EOF'
 public class UserService {
 
     public User findUser(String id) {
@@ -11,11 +10,10 @@ public class UserService {
     }
 
     public List<User> getAllUsers() {
-        List<User> user = userRepo.findAll();
-        for (User u : user) {
+        List<User> users = userRepo.findAll();
+        for (User u : users) {
             u.setOrders(orderRepo.findByUserId(u.getId()));
         }
-        return user;
+        return users;
     }
 }
-EOF
